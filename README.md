@@ -13,6 +13,7 @@ Also installs git, pulls down the sms-tools repo, and additional python librarie
 
 - install VirtualBox: https://www.virtualbox.org
 - install Vagrant: https://www.vagrantup.com
+- install X http://xquartz.macosforge.org/landing/
 - clone this repo
 - Do "vagrant up" to start everthing, then "vagrant ssh" to login to the VM.
 - Do "osstest" and you should hear sound.
