@@ -16,7 +16,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provider :virtualbox do |vb|
     vb.customize ["modifyvm", :id, '--audio', 'coreaudio', '--audiocontroller', 'hda'] # choices: hda sb16 ac97
   end
-
+  
+  config.vm.synced_folder ".", "/home/vagrant/sms-tools/workspace"
 
 end
 
