@@ -18,7 +18,5 @@ Also installs git, pulls down the sms-tools repo, and additional python librarie
 - Do "vagrant up" to start everthing, then "vagrant ssh" to login to the VM.
 - Do "osstest" and you should hear sound.
 
-The ```~/sms-tools/workspace``` directory is a synced folder so you can download programming assignments to the project root, edit them in your favorite text editor on the host OS, and run them on Ubuntu.
-
 based on
 https://github.com/GeoffreyPlitt/vagrant-audio
