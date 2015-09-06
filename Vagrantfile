@@ -73,9 +73,9 @@ $BOOTSTRAP_SCRIPT = <<EOF
   sudo apt-get install -y python-dev ipython python-numpy python-matplotlib python-scipy python-pygame cython
 
   # have to reboot for drivers to kick in, but only the first time of course
-  if [ ! -f ~/runonce ]
+  if [ ! -f ~/.runonce ]
   then
     sudo reboot
-    touch ~/runonce
+    touch ~/.runonce
   fi
 EOF
