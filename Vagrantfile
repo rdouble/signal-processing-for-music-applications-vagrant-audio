@@ -4,6 +4,24 @@
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
 
+module OS
+    def OS.windows?
+        (/cygwin|mswin|mingw|bccwin|wince|emx/ =~ RUBY_PLATFORM) != nil
+    end
+
+    def OS.mac?
+        (/darwin/ =~ RUBY_PLATFORM) != nil
+    end
+
+    def OS.unix?
+        !OS.windows?
+    end
+
+    def OS.linux?
+        OS.unix? and not OS.mac?
+    end
+end
+
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
  
   config.vm.box = "precise32"
@@ -14,7 +32,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.provision :shell, :inline => $BOOTSTRAP_SCRIPT # see below
   config.vm.provider :virtualbox do |vb|
-    vb.customize ["modifyvm", :id, '--audio', 'coreaudio', '--audiocontroller', 'hda'] # choices: hda sb16 ac97
+    if OS.mac?
+      vb.customize ["modifyvm", :id, '--audio', 'coreaudio', '--audiocontroller', 'hda'] # choices: hda sb16 ac97
+    elsif OS.linux?
+      vb.customize ["modifyvm", :id, '--audio', 'pulse', '--audiocontroller', 'hda'] # choices: hda sb16 ac97
+    end
+
+    vb.customize ["modifyvm", :id, "--vram", "9"] # prevent a warning
   end
 
 
