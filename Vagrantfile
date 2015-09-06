@@ -40,7 +40,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     vb.customize ["modifyvm", :id, "--vram", "9"] # prevent a warning
   end
-
+  
+  config.vm.synced_folder ".", "/home/vagrant/sms-tools/workspace"
 
 end
 
