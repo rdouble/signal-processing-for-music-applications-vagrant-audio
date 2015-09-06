@@ -36,6 +36,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       vb.customize ["modifyvm", :id, '--audio', 'coreaudio', '--audiocontroller', 'hda'] # choices: hda sb16 ac97
     elsif OS.linux?
       vb.customize ["modifyvm", :id, '--audio', 'pulse', '--audiocontroller', 'hda'] # choices: hda sb16 ac97
+    elsif OS.windows?
+      vb.customize ["modifyvm", :id, '--audio', 'dsound', '--audiocontroller', 'hda'] # choices: hda sb16 ac97
     end
 
     vb.customize ["modifyvm", :id, "--vram", "9"] # prevent a warning
