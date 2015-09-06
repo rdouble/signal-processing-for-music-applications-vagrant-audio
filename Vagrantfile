@@ -65,8 +65,7 @@ $BOOTSTRAP_SCRIPT = <<EOF
   sudo apt-get install -y git
 
   # ---- sms-tools
-  git clone https://github.com/MTG/sms-tools.git
-  sudo chown -R vagrant:vagrant sms-tools
+  sudo -u vagrant git clone https://github.com/MTG/sms-tools.git
 
   # ---- sms tools python dependencies
   sudo apt-get install -y python-dev ipython python-numpy python-matplotlib python-scipy python-pygame cython
