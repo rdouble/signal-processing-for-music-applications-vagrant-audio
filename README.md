@@ -1,6 +1,6 @@
 signal-processing-for-music-applications-vagrant-audio
 =============
-A Vagrant file that creates an audio capable Ubuntu Precice 32 VM on OSX.
+A Vagrant file that creates an audio capable Ubuntu Precise 32 VM on OSX.
 
 This is for the coursera course "Audio Signal Processing for Music Applications"
 
